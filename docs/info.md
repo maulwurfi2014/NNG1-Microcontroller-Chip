@@ -13,8 +13,8 @@ Explain how your project works
 
 ## How to test
 
-Explain how to use your project
+1.Connect the TX and RX pin to a USB-to-UART converter (like the CH340K) for programming.
+2.Connect a QSPI FLASH (e.x. 4MB) to 
 
 ## External hardware
-
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+You only need a external QSPI FLASH and a USB-to-UART converter (like the CH340K).
