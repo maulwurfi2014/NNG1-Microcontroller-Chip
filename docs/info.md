@@ -13,8 +13,8 @@ Explain how your project works
 
 ## How to test
 
-1.Connect the TX and RX pin to a USB-to-UART converter (like the CH340K) for programming.
-2.Connect a QSPI FLASH (e.x. 4MB) to 
+1.Connect the TX (GPIO8) and RX (GPIO9) pin to a USB-to-UART converter (like the CH340K) for programming.
+2.Connect a QSPI FLASH (e.x. 4MB) to the QSPI Pins (
 
 ## External hardware
 You only need a external QSPI FLASH and a USB-to-UART converter (like the CH340K).
