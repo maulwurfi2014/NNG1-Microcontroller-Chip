@@ -6,10 +6,13 @@ project:
   description: "Compact RV32I microcontroller SoC with GPIO, UART, SPI, I2C, PWM, timers, watchdog, IRQ and QSPI"
   language: "Verilog"
   clock_hz: 10000000
-  # Conservative starting size for the current RTL. Final tile count must be
-  # confirmed by the IHP/TT implementation flow after synthesis.
+
+  # Conservative starting size for the current RTL.
+  # Final tile count must be confirmed by the implementation flow.
   tiles: "8x2"
+
   top_module: "tt_um_nng1"
+
   source_files:
     - "tt_um_nng1.v"
     - "nng1.v"
@@ -31,31 +34,42 @@ project:
     - "peripherals/irq_controller.v"
     - "flash/qspi_master.v"
     - "clock/clock_ctrl.v"
-  pinout:
-    ui[0]: "UART_RX"
-    ui[1]: "BOOT (1=UART boot, 0=QSPI boot)"
-    ui[2]: "GPIO_IN0"
-    ui[3]: "GPIO_IN1"
-    ui[4]: "GPIO_IN2"
-    ui[5]: "GPIO_IN3"
-    ui[6]: "GPIO_IN4"
-    ui[7]: "GPIO_IN5"
-    uo[0]: "UART_TX"
-    uo[1]: "GPIO_OUT0"
-    uo[2]: "GPIO_OUT1"
-    uo[3]: "GPIO_OUT2"
-    uo[4]: "GPIO_OUT3"
-    uo[5]: "GPIO_OUT4"
-    uo[6]: "GPIO_OUT5"
-    uo[7]: "GPIO_OUT6"
-    uio[0]: "QSPI_IO0 / MOSI"
-    uio[1]: "QSPI_IO1 / MISO"
-    uio[2]: "QSPI_IO2"
-    uio[3]: "QSPI_IO3"
-    uio[4]: "QSPI_CS_N"
-    uio[5]: "QSPI_SCK"
-    uio[6]: "GPIO7"
-    uio[7]: "GPIO8"
-    
+
+# The pinout of your project.
+# Leave unused pins blank. DO NOT delete or add any pins.
+# This section is used for the Tiny Tapeout datasheet/website.
+
+pinout:
+
+  # Inputs
+  ui[0]: "UART_RX"
+  ui[1]: "BOOT (1=UART boot, 0=QSPI boot)"
+  ui[2]: "GPIO_IN0"
+  ui[3]: "GPIO_IN1"
+  ui[4]: "GPIO_IN2"
+  ui[5]: "GPIO_IN3"
+  ui[6]: "GPIO_IN4"
+  ui[7]: "GPIO_IN5"
+
+  # Outputs
+  uo[0]: "UART_TX"
+  uo[1]: "GPIO_OUT0"
+  uo[2]: "GPIO_OUT1"
+  uo[3]: "GPIO_OUT2"
+  uo[4]: "GPIO_OUT3"
+  uo[5]: "GPIO_OUT4"
+  uo[6]: "GPIO_OUT5"
+  uo[7]: "GPIO_OUT6"
+
+  # Bidirectional pins
+  uio[0]: "QSPI_IO0 / MOSI"
+  uio[1]: "QSPI_IO1 / MISO"
+  uio[2]: "QSPI_IO2"
+  uio[3]: "QSPI_IO3"
+  uio[4]: "QSPI_CS_N"
+  uio[5]: "QSPI_SCK"
+  uio[6]: "GPIO7"
+  uio[7]: "GPIO8"
+
 # Do not change!
 yaml_version: 6
