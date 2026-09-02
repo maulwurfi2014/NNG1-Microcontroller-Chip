@@ -6,7 +6,24 @@ SIM ?= icarus
 FST ?= -fst # Use more efficient FST format
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
-PROJECT_SOURCES = project.v
+PROJECT_SOURCES = \
+    tt_um_nng1.v \
+    nng1.v \
+    reset_sync.v \
+    cpu/rv32i_core.v \
+    memory/bootrom.v \
+    memory/sram.v \
+    memory/sram_ihp_1024x32.v \
+    peripherals/gpio.v \
+    peripherals/uart.v \
+    peripherals/spi_master.v \
+    peripherals/i2c_master.v \
+    peripherals/pwm.v \
+    peripherals/timer.v \
+    peripherals/watchdog.v \
+    peripherals/irq_controller.v \
+    flash/qspi_master.v \
+    clock/clock_ctrl.v
 
 ifneq ($(GATES),yes)
 
