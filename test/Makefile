@@ -7,23 +7,26 @@ FST ?= -fst # Use more efficient FST format
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
 PROJECT_SOURCES = \
-    tt_um_nng1.v \
-    nng1.v \
-    reset_sync.v \
-    cpu/rv32i_core.v \
-    memory/bootrom.v \
-    memory/sram.v \
-    memory/sram_ihp_1024x32.v \
-    peripherals/gpio.v \
-    peripherals/uart.v \
-    peripherals/spi_master.v \
-    peripherals/i2c_master.v \
-    peripherals/pwm.v \
-    peripherals/timer.v \
-    peripherals/watchdog.v \
-    peripherals/irq_controller.v \
-    flash/qspi_master.v \
-    clock/clock_ctrl.v
+    ../src/tt_um_nng1.v \
+    ../src/nng1.v \
+    ../src/reset_sync.v \
+    ../src/bootloader.v \
+    ../src/boot_uart_phy.v \
+    ../src/qspi_byte_phy.v \
+    ../src/cpu/rv32i_core.v \
+    ../src/memory/bootrom.v \
+    ../src/memory/sram.v \
+    ../src/memory/sram_ihp_1024x32.v \
+    ../src/peripherals/gpio.v \
+    ../src/peripherals/uart.v \
+    ../src/peripherals/spi_master.v \
+    ../src/peripherals/i2c_master.v \
+    ../src/peripherals/pwm.v \
+    ../src/peripherals/timer.v \
+    ../src/peripherals/watchdog.v \
+    ../src/peripherals/irq_controller.v \
+    ../src/flash/qspi_master.v \
+    ../src/clock/clock_ctrl.v
 
 ifneq ($(GATES),yes)
 
