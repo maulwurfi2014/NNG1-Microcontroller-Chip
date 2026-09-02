@@ -1,56 +1,59 @@
 # Tiny Tapeout project information
 project:
-  title:        ""      # Project title
-  author:       ""      # Your name
-  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # One line description of what your project does
-  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
-
-  # How many tiles your design occupies? A single tile is about 167x108 uM.
-  tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
-
-  # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_example"
-
-  # List your project's source files here.
-  # Source files must be in ./src and you must list each source file separately, one per line.
-  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
+  title: "Notna Nano G1"
+  author: "Notna"
+  discord: ""
+  description: "Compact RV32I microcontroller SoC with GPIO, UART, SPI, I2C, PWM, timers, watchdog, IRQ and QSPI"
+  language: "Verilog"
+  clock_hz: 10000000
+  # Conservative starting size for the current RTL. Final tile count must be
+  # confirmed by the IHP/TT implementation flow after synthesis.
+  tiles: "8x2"
+  top_module: "tt_um_nng1"
   source_files:
-    - "project.v"
-
-# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
-# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
-pinout:
-  # Inputs
-  ui[0]: ""
-  ui[1]: ""
-  ui[2]: ""
-  ui[3]: ""
-  ui[4]: ""
-  ui[5]: ""
-  ui[6]: ""
-  ui[7]: ""
-
-  # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
-
-  # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
+    - "tt_um_nng1.v"
+    - "nng1.v"
+    - "reset_sync.v"
+    - "cpu/rv32i_core.v"
+    - "memory/bootrom.v"
+    - "memory/sram.v"
+    - "memory/sram_ihp_1024x32.v"
+    - "peripherals/gpio.v"
+    - "peripherals/uart.v"
+    - "peripherals/spi_master.v"
+    - "peripherals/i2c_master.v"
+    - "peripherals/pwm.v"
+    - "peripherals/timer.v"
+    - "peripherals/watchdog.v"
+    - "peripherals/irq_controller.v"
+    - "peripherals/pad_ctrl.v"
+    - "flash/qspi_master.v"
+    - "clock/clock_ctrl.v"
+  pinout:
+    ui[0]: "GPIO_IN0"
+    ui[1]: "GPIO_IN1"
+    ui[2]: "GPIO_IN2"
+    ui[3]: "GPIO_IN3"
+    ui[4]: "GPIO_IN4"
+    ui[5]: "GPIO_IN5"
+    ui[6]: "GPIO_IN6"
+    ui[7]: "GPIO_IN7"
+    uo[0]: "GPIO_OUT0"
+    uo[1]: "GPIO_OUT1"
+    uo[2]: "GPIO_OUT2"
+    uo[3]: "GPIO_OUT3"
+    uo[4]: "GPIO_OUT4"
+    uo[5]: "GPIO_OUT5"
+    uo[6]: "GPIO_OUT6"
+    uo[7]: "GPIO_OUT7"
+    uio[0]: "GPIO8 / QSPI_IO0 / SPI_MOSI / I2C_SCL / UART_TX"
+    uio[1]: "GPIO9 / QSPI_IO1 / SPI_SCK / I2C_SDA / UART_RX"
+    uio[2]: "GPIO10 / QSPI_IO2 / SPI_CS"
+    uio[3]: "GPIO11 / QSPI_IO3 / SPI_MISO"
+    uio[4]: "GPIO12 / QSPI_CS"
+    uio[5]: "GPIO13 / QSPI_SCK"
+    uio[6]: "GPIO14"
+    uio[7]: "GPIO15"
 
 # Do not change!
 yaml_version: 6
